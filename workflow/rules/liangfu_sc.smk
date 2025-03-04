@@ -30,7 +30,7 @@ rule star_index:
 
 rule run_starsolo:
     input:
-        whitelist="resources/liangfu_dataset/3M-february-2018.txt",
+        whitelist="resources/liangfu_dataset/3M-february-2018.txt.gz",
         r2="resources/liangfu_dataset/2024-11-19-AAG52FLM5/AAG52FLM5_CM-{sample}_2_sequence.txt.gz",    # cDNA
         r1="resources/liangfu_dataset/2024-11-19-AAG52FLM5/AAG52FLM5_CM-{sample}_1_sequence.txt.gz",    # Barcode
         index="results/liangfu_sc/star_index"
@@ -50,6 +50,9 @@ rule run_starsolo:
         ml load biology
         ml load star/2.7.10b
         mkdir -p $(dirname {output.matrix})
+        # Decompress whitelist into a temporary file
+        tmp_whitelist=$(mktemp)
+        gunzip -c {input.whitelist} > $tmp_whitelist
         STAR --genomeDir {input.index} \
              --readFilesIn {input.r2} {input.r1} \
              --readFilesCommand zcat \
