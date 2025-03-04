@@ -1,0 +1,27 @@
+name: sean_m_wu
+channels:
+  - pwwang
+  - conda-forge
+  - bioconda
+  - defaults
+  - r
+dependencies:
+  - conda-forge::glpk
+  - conda-forge::libxml2
+  - conda-forge::openssl
+  - conda-forge::gcc         # Adds GCC compiler and related libraries
+  - conda-forge::libgcc-ng   # Provides libstdc++.so.6 with required GLIBCXX
+  - conda-forge::hdf5
+  - pwwang::r-seuratwrappers=0.3.1
+  - icu=70.1 # to try to get around stringi bug with Seurat
+  - r-base=4.2.3
+  - r-r.utils
+  - r-hdf5r
+  - r-soupx=1.6.2
+  - r-seurat=5.0.1
+  - r-tidyverse=2.0.0
+  - bioconda::bioconductor-dropletutils
+  - r-remotes
+  - r-stringi
+  - bioconda::bioconductor-batchelor
+  - r-matrixstats=1.1.0    # Explicitly use an older version to use RunFastMNN

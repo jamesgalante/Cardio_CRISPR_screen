@@ -1,0 +1,3 @@
+- fastq files were provided to me by Jia
+	- these are not listed on the github as they are too large
+- 3M-february-2018.txt (the 10X barcode whitelist) can be found through cellranger

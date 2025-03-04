@@ -1,0 +1,12 @@
+# config file containing parameters
+configfile: "config/config.yml"
+
+# include all rules
+include: "rules/process_all_datasets.smk"
+include: "rules/liangfu_sc.smk"
+
+# Perform all analyses to output benchmarked datasets
+rule all:
+  input:
+    "results/final_top_13k.txt"
+
